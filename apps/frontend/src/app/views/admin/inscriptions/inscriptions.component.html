@@ -1,0 +1,93 @@
+<div class="page-header">
+    <h1>{{ 'MENU.CONGRESSISTAS' | translate }}</h1>
+    <div class="page-actions">
+        <button class="btn-secondary" (click)="toggleFilters()">
+            <span class="material-icons">filter_list</span> Filtros
+        </button>
+        <button class="btn-secondary">Exportar CSV</button>
+        <button class="btn-primary">Nova Inscrição</button>
+    </div>
+</div>
+
+@if (showFilters) {
+<div class="filters-panel">
+    <div class="filter-group">
+        <label>Status</label>
+        <select>
+            <option value="">Todos</option>
+            <option value="PENDENTE">Pendente</option>
+            <option value="CONFIRMADA">Confirmada</option>
+            <option value="CANCELADA">Cancelada</option>
+        </select>
+    </div>
+    <div class="filter-group">
+        <label>Categoria</label>
+        <select>
+            <option value="">Todas</option>
+            <option value="Estudante">Estudante</option>
+            <option value="Profissional">Profissional</option>
+        </select>
+    </div>
+    <div class="filter-toggles">
+        <label class="checkbox-container">
+            <input type="checkbox"> Pessoas com Deficiência (PCD)
+        </label>
+        <label class="checkbox-container">
+            <input type="checkbox"> Com Voucher
+        </label>
+        <label class="checkbox-container">
+            <input type="checkbox"> Sem Comprovante
+        </label>
+    </div>
+</div>
+}
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th class="actions-col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (inscricao of inscriptions; track inscricao.id) {
+            <tr>
+                <td>
+                    {{ inscricao.participante.nome }}
+                    @if (inscricao.participante.pcd?.possui) {
+                    <span class="material-icons pcd-icon"
+                        title="PCD: {{ inscricao.participante.pcd?.descricao }}">accessible</span>
+                    }
+                </td>
+                <td>{{ inscricao.participante.email }}</td>
+                <td>{{ inscricao.categoria.nome }}</td>
+                <td>
+                    <span class="badge" [ngClass]="getBadgeClass(inscricao.status)">
+                        {{ 'STATUS.' + inscricao.status | translate }}
+                    </span>
+                </td>
+                <td class="actions-cell">
+                    <div class="btn-group">
+                        <button type="button" title="Editar">
+                            <span class="material-icons">edit_square</span>
+                        </button>
+                        <button type="button" title="Detalhes">
+                            <span class="material-icons">list</span>
+                        </button>
+                        <button type="button" title="Etiquetas">
+                            <span class="material-icons">label</span>
+                        </button>
+                        <button type="button" title="Perfil">
+                            <span class="material-icons">person</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

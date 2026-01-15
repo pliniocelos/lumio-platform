@@ -1,0 +1,10 @@
+<div class="lang-switcher">
+    <button (click)="changeLanguage('pt-BR')" class="lang-btn" [class.active]="translate.currentLang === 'pt-BR'"
+        title="Português">
+        <img src="assets/images/flags/br.svg" alt="Português">
+    </button>
+    <button (click)="changeLanguage('en-US')" class="lang-btn" [class.active]="translate.currentLang === 'en-US'"
+        title="English">
+        <img src="assets/images/flags/uk.svg" alt="English">
+    </button>
+</div>

@@ -1,0 +1,78 @@
+<div class="eventos-disponiveis-container">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <img src="assets/images/logo/logo-lumio-congressos-blue.png" alt="Lumio Congressos" class="topbar-logo">
+        </div>
+
+        <div class="topbar-center"></div>
+
+        <div class="topbar-right">
+            <a href="/selecionar-evento" class="topbar-link">
+                <i class="far fa-calendar-check"></i>
+                <span>{{ 'COMMON.MY_EVENTS' | translate }}</span>
+            </a>
+            <a href="/area-congressista/minhas-inscricoes" class="topbar-link">
+                <i class="far fa-file-alt"></i>
+                <span>{{ 'COMMON.MY_REGISTRATIONS' | translate }}</span>
+            </a>
+
+            <app-language-switcher></app-language-switcher>
+
+            <button (click)="logout()" class="logout-btn">
+                {{ 'COMMON.LOGOUT' | translate }}
+            </button>
+        </div>
+    </div>
+
+    <div class="eventos-content">
+        <header class="page-header">
+            <h1>Eventos Disponíveis para Inscrição</h1>
+            <p class="subtitle">Explore eventos científicos e faça sua inscrição</p>
+        </header>
+
+        @if (isLoading()) {
+        <app-loader></app-loader>
+        } @else if (errorMessage()) {
+        <div class="error-message">
+            <i class="icon">error</i>
+            <p>{{ errorMessage() }}</p>
+        </div>
+        } @else if (eventos().length === 0) {
+        <div class="no-events-message">
+            <i class="icon">event_busy</i>
+            <h2>Nenhum evento disponível no momento</h2>
+            <p>Novos eventos serão publicados em breve. Volte mais tarde!</p>
+        </div>
+        } @else {
+        <div class="eventos-grid">
+            @for (evento of eventos(); track evento.id) {
+            <div class="evento-card">
+                <div class="evento-header">
+                    <h3 class="evento-title">{{ evento.nome }}</h3>
+                    <span class="evento-badge">Inscrições Abertas</span>
+                </div>
+
+                <div class="evento-body">
+                    <p class="evento-theme">
+                        <i class="icon">category</i>
+                        {{ evento.tema }}
+                    </p>
+                    <p class="evento-languages">
+                        <i class="icon">language</i>
+                        Idiomas: {{ evento.idiomas.join(', ').toUpperCase() }}
+                    </p>
+                </div>
+
+                <div class="evento-footer">
+                    <button class="btn-register" (click)="registerForEvent(evento)">
+                        <i class="icon">how_to_reg</i>
+                        Inscrever-se
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>

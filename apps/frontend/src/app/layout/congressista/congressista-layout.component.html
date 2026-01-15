@@ -1,0 +1,55 @@
+<div class="congressista-layout">
+    @if (isMobileSidebarOpen) {
+    <div class="sidebar-overlay" (click)="closeMobileSidebar()"></div>
+    }
+
+    <aside class="sidebar" [class.open]="isMobileSidebarOpen">
+        <div class="sidebar-header">
+            <img src="assets/images/logo/logo-lumio-congressos-white.png" alt="Lumio" class="logo">
+        </div>
+        <nav class="sidebar-nav">
+            <a routerLink="/area-congressista/dashboard" routerLinkActive="active">
+                <i class="icon">dashboard</i> {{ 'MENU.DASHBOARD' | translate }}
+            </a>
+            <a routerLink="/area-congressista/minha-inscricao" routerLinkActive="active">
+                <i class="icon">badge</i> Minha Inscrição
+            </a>
+            <a routerLink="/area-congressista/programacao" routerLinkActive="active">
+                <i class="icon">event</i> {{ 'MENU.PROGRAMACAO' | translate }}
+            </a>
+            <a routerLink="/area-congressista/meus-trabalhos" routerLinkActive="active">
+                <i class="icon">description</i> Meus Trabalhos
+            </a>
+            <a routerLink="/area-congressista/certificados" routerLinkActive="active">
+                <i class="icon">workspace_premium</i> {{ 'MENU.CERTIFICADOS' | translate }}
+            </a>
+        </nav>
+    </aside>
+    <div class="main-wrapper">
+        <header class="topbar">
+            <button class="hamburger-btn" (click)="toggleMobileSidebar()">
+                <i class="icon">menu</i>
+            </button>
+
+            <div class="event-info">
+                @if (contextService.evento(); as evento) {
+                <span class="event-name">{{ evento.nome }}</span>
+                <span class="role-badge">Participante</span>
+                }
+            </div>
+            <div class="user-info">
+                @if (contextService.usuario(); as usuario) {
+                <span class="user-name">{{ usuario.nome }}</span>
+                }
+                <app-language-switcher></app-language-switcher>
+                <button (click)="switchEvent()" class="switch-event-btn" title="Trocar de Evento">
+                    <i class="icon">swap_horiz</i>
+                </button>
+                <button (click)="logout()" class="logout-btn">{{ 'COMMON.LOGOUT' | translate }}</button>
+            </div>
+        </header>
+        <main class="congressista-content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

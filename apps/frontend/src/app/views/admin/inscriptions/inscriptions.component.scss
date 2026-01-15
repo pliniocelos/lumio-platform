@@ -1,0 +1,228 @@
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    .page-actions {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            /* Space for scrollbar */
+        }
+    }
+
+    .btn-primary {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        /* Prevent breaking on mobile */
+    }
+
+    .btn-secondary {
+        background: white;
+        color: #666;
+        border: 1px solid #ddd;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        /* Prevent breaking on mobile */
+    }
+
+    .table-container {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+        /* Enable horizontal scroll */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    th,
+    td {
+        padding: 0.5rem 0.5rem;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        font-size: 0.875rem;
+    }
+
+    th {
+        font-weight: 600;
+        color: #555;
+        background: #f9f9f9;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .actions-col {
+        text-align: right;
+        width: 140px;
+    }
+
+    .actions-cell {
+        text-align: right;
+    }
+
+    .badge {
+        padding: 0.15rem 0.4rem;
+        border-radius: 99px;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .badge.success {
+        background: #dff0d8;
+        color: #3c763d;
+    }
+
+    .badge.warning {
+        background: #fcf8e3;
+        color: #8a6d3b;
+    }
+
+    .badge.danger {
+        background: #f2dede;
+        color: #a94442;
+    }
+
+    .badge.info {
+        background: #d9edf7;
+        color: #31708f;
+    }
+
+    .btn-group {
+        display: inline-flex;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        background: white;
+    }
+
+    .btn-group button {
+        background: #f8f9fa;
+        border: none;
+        border-right: 1px solid #ddd;
+        padding: 0.25rem 0.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        transition: background 0.2s;
+    }
+
+    .btn-group button:last-child {
+        border-right: none;
+    }
+
+    .btn-group button:hover {
+        background: #e2e6ea;
+    }
+
+    .btn-group .material-icons {
+        font-size: 1.1rem;
+    }
+
+    /* Filters */
+    .filters-panel {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        display: flex;
+        gap: 2rem;
+        align-items: flex-end;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            /* Full width inputs */
+            gap: 1rem;
+        }
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .filter-group label {
+        font-size: 0.8rem;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .filter-group select {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 150px;
+    }
+
+    .filter-toggles {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        padding-bottom: 0.5rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            /* Stack checkboxes */
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: #555;
+        cursor: pointer;
+    }
+
+    .pcd-icon {
+        font-size: 1.2rem;
+        vertical-align: middle;
+        color: #3498db;
+        margin-left: 0.5rem;
+    }

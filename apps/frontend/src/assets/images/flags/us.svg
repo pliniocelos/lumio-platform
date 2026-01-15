@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <g fill-rule="evenodd">
+    <path fill="#bd3d44" d="M0 0h640v480H0"/>
+    <path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+    <path fill="#192f5d" d="M0 0h296v259H0"/>
+    <marker id="a" markerHeight="30" markerWidth="30">
+      <path fill="#fff" d="m15 0 9 27-24-17h29l-23 17z"/>
+    </marker>
+    <path fill="none" marker-mid="url(#a)" d="m25 26h247M25 78h247M25 130h247M25 181h247M25 233h247m-222-26h246M50 78h246M50 130h246M50 181h246M50 233h246"/>
+  </g>
+</svg>

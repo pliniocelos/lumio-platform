@@ -1,0 +1,277 @@
+.congressista-dashboard {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2.5rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+    }
+
+    .event-subtitle {
+        font-size: 1.1rem;
+        color: #718096;
+
+        strong {
+            color: var(--blue-lumio);
+            font-weight: 600;
+        }
+    }
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.welcome-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--blue-lumio) 0%, var(--green-lumio) 100%);
+    color: white;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    .card-icon {
+        i {
+            font-size: 4rem;
+            opacity: 0.9;
+        }
+    }
+
+    .card-content {
+        flex: 1;
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+    }
+}
+
+.feature-card {
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+
+        i {
+            font-size: 2rem;
+            color: var(--green-lumio);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0;
+        }
+    }
+
+    p {
+        color: #718096;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--blue-lumio);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:not(:disabled):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+        }
+
+        &:disabled {
+            background: #e2e8f0;
+            color: #a0aec0;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.actions-card {
+    grid-column: span 2;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+
+        i {
+            font-size: 2rem;
+            color: var(--green-lumio);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0;
+        }
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 1rem;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            i {
+                font-size: 2rem;
+                color: #718096;
+            }
+
+            span {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #4a5568;
+            }
+
+            &:not(:disabled):hover {
+                background: var(--blue-lumio);
+                border-color: transparent;
+
+                i,
+                span {
+                    color: white;
+                }
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+.info-card {
+    grid-column: 1 / -1;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+
+        i {
+            font-size: 2rem;
+            color: #4299e1;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0;
+        }
+    }
+
+    .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: #4a5568;
+            font-size: 1rem;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            i {
+                color: #48bb78;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 968px) {
+    .congressista-dashboard {
+        padding: 1.5rem;
+    }
+
+    .dashboard-header {
+        h1 {
+            font-size: 1.75rem;
+        }
+    }
+
+    .welcome-card {
+        flex-direction: column;
+        text-align: center;
+
+        .card-icon i {
+            font-size: 3rem;
+        }
+    }
+
+    .actions-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions-card,
+    .info-card {
+        grid-column: auto;
+    }
+}

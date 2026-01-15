@@ -1,0 +1,36 @@
+<div class="auth-card">
+    <h2>{{ 'AUTH.LOGIN.TITLE' | translate }}</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">{{ 'AUTH.LABEL.EMAIL' | translate }}</label>
+            <input id="email" type="email" formControlName="email" placeholder="admin@lumio.com">
+            @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.EMAIL_INVALID' | translate }}</span>
+            }
+        </div>
+        <div class="form-group">
+            <label for="password">{{ 'AUTH.LABEL.PASSWORD' | translate }}</label>
+            <input id="password" type="password" formControlName="password" placeholder="123456">
+            @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.PASSWORD_REQUIRED' | translate }}</span>
+            }
+        </div>
+
+        <div class="actions">
+            <button type="submit" [disabled]="loginForm.invalid || isLoading">
+                {{ isLoading ? ('AUTH.LOGIN.BUTTON_LOADING' | translate) : ('AUTH.LOGIN.BUTTON' | translate) }}
+            </button>
+        </div>
+
+        <div class="links">
+            <a routerLink="/recuperar-senha">{{ 'AUTH.LOGIN.FORGOT_PASSWORD' | translate }}</a>
+            <br>
+            <a routerLink="/cadastro" style="display: inline-block; margin-top: 0.5rem;">{{ 'AUTH.LOGIN.CREATE_ACCOUNT'
+                | translate }}</a>
+        </div>
+
+        @if (errorMessage) {
+        <div class="alert error">{{ errorMessage | translate }}</div>
+        }
+    </form>
+</div>

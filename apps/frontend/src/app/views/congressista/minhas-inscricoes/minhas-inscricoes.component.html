@@ -1,0 +1,103 @@
+<div class="minhas-inscricoes-container">
+    <header class="page-header">
+        <h1>Minhas Inscrições</h1>
+        <p class="subtitle">Gerencie todas as suas inscrições em eventos</p>
+    </header>
+
+    @if (showSuccessMessage()) {
+    <div class="success-alert">
+        <i class="icon">check_circle</i>
+        <span>Inscrição realizada com sucesso!</span>
+    </div>
+    }
+
+    <div class="filters">
+        <button class="filter-btn" [class.active]="selectedFilter() === 'todas'" (click)="applyFilter('todas')">
+            Todas
+        </button>
+        <button class="filter-btn" [class.active]="selectedFilter() === RegistrationStatus.CONFIRMADA"
+            (click)="applyFilter(RegistrationStatus.CONFIRMADA)">
+            Confirmadas
+        </button>
+        <button class="filter-btn" [class.active]="selectedFilter() === RegistrationStatus.PENDENTE_PAGAMENTO"
+            (click)="applyFilter(RegistrationStatus.PENDENTE_PAGAMENTO)">
+            Pendentes
+        </button>
+        <button class="filter-btn" [class.active]="selectedFilter() === RegistrationStatus.CANCELADA"
+            (click)="applyFilter(RegistrationStatus.CANCELADA)">
+            Canceladas
+        </button>
+    </div>
+
+    @if (isLoading()) {
+    <app-loader></app-loader>
+    } @else if (errorMessage()) {
+    <div class="error-message">
+        <i class="icon">error</i>
+        <p>{{ errorMessage() }}</p>
+    </div>
+    } @else if (filteredRegistrations().length === 0) {
+    <div class="no-registrations">
+        <i class="icon">receipt_long</i>
+        <h2>Nenhuma inscrição encontrada</h2>
+        <p>Você ainda não possui inscrições{{ selectedFilter() !== 'todas' ? ' nesta categoria' : '' }}.</p>
+    </div>
+    } @else {
+    <div class="registrations-list">
+        @for (registration of filteredRegistrations(); track registration.id) {
+        <div class="registration-card">
+            <div class="card-header">
+                <div class="event-info">
+                    <h3>{{ registration.eventoNome }}</h3>
+                    <span class="event-slug">{{ registration.eventoSlug }}</span>
+                </div>
+                <span class="status-badge" [ngClass]="getStatusBadgeClass(registration.status)">
+                    {{ getStatusLabel(registration.status) }}
+                </span>
+            </div>
+
+            <div class="card-body">
+                <div class="info-row">
+                    <i class="icon">event</i>
+                    <span>Inscrito em: {{ registration.dataCriacao | date:'dd/MM/yyyy HH:mm' }}</span>
+                </div>
+
+                @if (registration.dataConfirmacao) {
+                <div class="info-row">
+                    <i class="icon">check_circle</i>
+                    <span>Confirmado em: {{ registration.dataConfirmacao | date:'dd/MM/yyyy HH:mm' }}</span>
+                </div>
+                }
+
+                @if (registration.dataCancelamento) {
+                <div class="info-row">
+                    <i class="icon">cancel</i>
+                    <span>Cancelado em: {{ registration.dataCancelamento | date:'dd/MM/yyyy HH:mm' }}</span>
+                </div>
+                }
+
+                <div class="info-row">
+                    <i class="icon">category</i>
+                    <span>Categoria: {{ registration.categoria }}</span>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                @if (registration.status === RegistrationStatus.CONFIRMADA) {
+                <button class="btn-action btn-cancel" (click)="cancelRegistration(registration)">
+                    <i class="icon">cancel</i>
+                    Cancelar Inscrição
+                </button>
+                }
+                @if (registration.status === RegistrationStatus.PENDENTE_PAGAMENTO) {
+                <button class="btn-action btn-pay">
+                    <i class="icon">payment</i>
+                    Realizar Pagamento
+                </button>
+                }
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

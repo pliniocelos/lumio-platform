@@ -1,0 +1,264 @@
+.minhas-inscricoes-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: #718096;
+        font-size: 1.1rem;
+    }
+}
+
+.success-alert {
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: #22543d;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.3s ease-out;
+
+    i {
+        color: #38a169;
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+
+    .filter-btn {
+        padding: 0.625rem 1.25rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        background: white;
+        color: #4a5568;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        &.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+    }
+}
+
+.registrations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.registration-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+
+    .event-info {
+        flex: 1;
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .event-slug {
+            color: #667eea;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &.badge-success {
+        background: #c6f6d5;
+        color: #22543d;
+    }
+
+    &.badge-warning {
+        background: #feebc8;
+        color: #7c2d12;
+    }
+
+    &.badge-danger {
+        background: #fed7d7;
+        color: #742a2a;
+    }
+
+    &.badge-secondary {
+        background: #e2e8f0;
+        color: #2d3748;
+    }
+}
+
+.card-body {
+    margin-bottom: 1rem;
+
+    .info-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        color: #4a5568;
+        font-size: 0.95rem;
+
+        i {
+            color: #667eea;
+            width: 20px;
+        }
+    }
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+
+    .btn-action {
+        padding: 0.625rem 1.25rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+
+        i {
+            font-size: 1.125rem;
+        }
+    }
+
+    .btn-cancel {
+        background: #fed7d7;
+        color: #742a2a;
+
+        &:hover {
+            background: #fc8181;
+            color: white;
+        }
+    }
+
+    .btn-pay {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+    }
+}
+
+.no-registrations,
+.error-message {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    i {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.6;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #2d3748;
+    }
+
+    p {
+        color: #718096;
+        font-size: 1.1rem;
+    }
+}
+
+.error-message {
+    color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+    .minhas-inscricoes-container {
+        padding: 1rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-actions {
+        flex-direction: column;
+
+        .btn-action {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

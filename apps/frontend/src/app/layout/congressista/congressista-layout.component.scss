@@ -1,0 +1,61 @@
+@import '../admin/admin-layout.component.scss';
+
+// Inherit all styles from admin layout and just customize the color scheme
+.congressista-layout {
+    @extend .admin-layout;
+}
+
+// Override primary gradient for congressista area with different color
+.sidebar {
+    background: var(--blue-lumio);
+}
+
+.sidebar-nav a {
+
+    &.active,
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-left-color: #fff;
+    }
+}
+
+.topbar {
+    .role-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        margin-left: 0.75rem;
+        background: var(--blue-lumio);
+        color: white;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .switch-event-btn {
+        background: #f7fafc;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        transition: all 0.2s;
+        margin-right: 0.5rem;
+
+        .icon {
+            font-size: 1.25rem;
+            color: #4a5568;
+        }
+
+        &:hover {
+            background: #edf2f7;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.congressista-content {
+    @extend .admin-content;
+}

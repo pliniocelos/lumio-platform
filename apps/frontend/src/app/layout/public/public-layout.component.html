@@ -1,0 +1,21 @@
+<div class="public-layout">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <img src="assets/images/logo/logo-lumio-congressos-blue.png" alt="Lumio Congressos" class="topbar-logo">
+        </div>
+
+        <div class="topbar-center"></div>
+
+        <div class="topbar-right">
+            <app-language-switcher></app-language-switcher>
+        </div>
+    </div>
+
+    <main class="public-content">
+        <router-outlet></router-outlet>
+    </main>
+    <footer class="public-footer">
+        <p>{{ 'FOOTER.RIGHTS' | translate }}</p>
+    </footer>
+</div>

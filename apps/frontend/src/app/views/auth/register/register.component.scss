@@ -1,0 +1,109 @@
+    :host {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .auth-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+
+        @media (max-width: 480px) {
+            padding: 1.5rem;
+            box-shadow: none;
+            border: 1px solid #eee;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--blue-lumio);
+            font-size: 1.25rem;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+
+            &:focus {
+                outline: none;
+                border-color: #3498db;
+            }
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+    }
+
+    .actions {
+        margin-top: 1.5rem;
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+
+            &:disabled {
+                background: #95a5a6;
+                cursor: not-allowed;
+            }
+
+            &:hover:not(:disabled) {
+                background: #2ecc71;
+            }
+        }
+    }
+
+    .links {
+        text-align: center;
+        margin-top: 1rem;
+
+        a {
+            color: var(--blue-lumio);
+            font-size: 0.8rem;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                color: #000060;
+            }
+        }
+    }
+
+    .alert {
+        padding: 0.75rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+
+        &.error {
+            background: #fdeaea;
+            color: #c0392b;
+            border: 1px solid #f2cfce;
+        }
+    }

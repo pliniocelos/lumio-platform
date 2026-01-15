@@ -1,0 +1,35 @@
+<div class="auth-card">
+    <h2>{{ 'AUTH.RECOVERY.TITLE' | translate }}</h2>
+    @if (successMessage) {
+    <div class="alert success">
+        {{ successMessage | translate:{email: recoveryForm.value.email} }}
+    </div>
+    <div class="actions">
+        <a routerLink="/login" class="btn-link">{{ 'AUTH.RECOVERY.BACK_LOGIN' | translate }}</a>
+    </div>
+    } @else {
+    <p class="desc">{{ 'AUTH.RECOVERY.INSTRUCTION' | translate }}</p>
+    <form [formGroup]="recoveryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">{{ 'AUTH.LABEL.EMAIL' | translate }}</label>
+            <input id="email" type="email" formControlName="email" placeholder="seu@email.com">
+            @if (recoveryForm.get('email')?.touched && recoveryForm.get('email')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.EMAIL_INVALID' | translate }}</span>
+            }
+        </div>
+
+        <div class="actions">
+            <button type="submit" [disabled]="recoveryForm.invalid || isLoading">
+                {{ isLoading ? ('AUTH.RECOVERY.BUTTON_LOADING' | translate) : ('AUTH.RECOVERY.BUTTON' | translate) }}
+            </button>
+        </div>
+
+        <div class="links">
+            <a routerLink="/login">{{ 'AUTH.RECOVERY.CANCEL' | translate }}</a>
+        </div>
+        @if (errorMessage) {
+        <div class="alert error">{{ errorMessage | translate }}</div>
+        }
+    </form>
+    }
+</div>

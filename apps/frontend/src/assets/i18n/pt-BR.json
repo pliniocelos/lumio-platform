@@ -1,0 +1,123 @@
+{
+    "MENU": {
+        "DASHBOARD": "Dashboard",
+        "SECRETARIA": "Secretaria",
+        "RESUMO": "Resumo",
+        "REALIZACAO": "Realização",
+        "TRABALHOS": "Trabalhos",
+        "SUBMISSOES": "Submissões",
+        "AVALIACOES": "Avaliações",
+        "INSCRICOES": "Inscrições",
+        "CONGRESSISTAS": "Congressistas",
+        "PROGRAMACAO": "Programação",
+        "LISTA_ATIVIDADES": "Lista de Atividades",
+        "LISTA": "Lista",
+        "CERTIFICADOS": "Certificados",
+        "CONFIGURACOES": "Configurações"
+    },
+    "COMMON": {
+        "LOGOUT": "Saire",
+        "LUMIO_ADMIN": "Lumio Admin",
+        "VIEW_AVAILABLE_EVENTS": "Ver Eventos Disponíveis",
+        "MY_REGISTRATIONS": "Minhas Inscrições",
+        "MY_EVENTS": "Meus Eventos"
+    },
+    "STATUS": {
+        "PENDENTE": "Pendente",
+        "CONFIRMADA": "Confirmada",
+        "CANCELADA": "Cancelada",
+        "AGUARDANDO_PAGAMENTO": "Aguardando Pagamento",
+        "ISENTO": "Isento"
+    },
+    "AUTH": {
+        "LOGIN": {
+            "TITLE": "Acesso ao Sistema",
+            "BUTTON": "Entrar",
+            "BUTTON_LOADING": "Entrando...",
+            "FORGOT_PASSWORD": "Esqueci minha senha",
+            "CREATE_ACCOUNT": "Criar conta"
+        },
+        "REGISTER": {
+            "TITLE": "Crie sua conta",
+            "BUTTON": "Cadastrar",
+            "BUTTON_LOADING": "Criando conta...",
+            "HAVE_ACCOUNT": "Já tenho uma conta"
+        },
+        "RECOVERY": {
+            "TITLE": "Recuperar Senha",
+            "INSTRUCTION": "Informe seu e-mail para receber as instruções de recuperação.",
+            "BUTTON": "Enviar Instruções",
+            "BUTTON_LOADING": "Enviando...",
+            "BACK_LOGIN": "Voltar para o Login",
+            "CANCEL": "Cancelar",
+            "SUCCESS_MESSAGE": "Se o e-mail {{email}} estiver cadastrado, você receberá um link de recuperação.",
+            "ERROR_GENERIC": "Erro ao enviar e-mail de recuperação."
+        },
+        "LABEL": {
+            "EMAIL": "E-mail",
+            "PASSWORD": "Senha",
+            "NAME": "Nome Completo",
+            "CONFIRM_PASSWORD": "Confirmar Senha"
+        },
+        "ERROR": {
+            "EMAIL_INVALID": "E-mail inválido",
+            "PASSWORD_REQUIRED": "Senha obrigatória",
+            "LOGIN_FAILED": "Usuário ou senha inválidos.",
+            "NETWORK_ERROR": "Sem conexão com a internet. Verifique sua conexão e tente novamente.",
+            "TOO_MANY_ATTEMPTS": "Muitas tentativas de login. Tente novamente mais tarde.",
+            "USER_DISABLED": "Esta conta foi desativada. Entre em contato com o suporte.",
+            "UNKNOWN": "Erro ao fazer login. Tente novamente.",
+            "NAME_REQUIRED": "Nome é obrigatório",
+            "PASSWORD_MIN_LENGTH": "Mínimo 6 caracteres",
+            "PASSWORD_MISMATCH": "As senhas não conferem",
+            "EMAIL_IN_USE": "Este e-mail já está em uso.",
+            "REGISTER_FAILED": "Erro ao criar conta. Tente novamente."
+        }
+    },
+    "EVENT_SELECTOR": {
+        "TITLE": "Selecione um Evento",
+        "SUBTITLE": "Escolha o evento que deseja acessar",
+        "YOUR_EVENTS": "Seus Eventos",
+        "NO_EVENTS_TITLE": "Nenhum Evento Associado",
+        "NO_EVENTS_MESSAGE": "Você ainda não está inscrito em nenhum evento. Confira os eventos disponíveis abaixo e faça sua inscrição!",
+        "AVAILABLE_EVENTS": "Eventos Disponíveis",
+        "ROLE_ADMIN": "Administrador",
+        "ROLE_USER": "Participante",
+        "BADGE_AVAILABLE": "Disponível",
+        "BTN_ACCESS_ADMIN": "Acessar Painel",
+        "BTN_ACCESS_USER": "Acessar Área do Participante",
+        "BTN_REGISTER": "Inscrever-se (em breve)",
+        "REGISTRATION_ID": "Inscrição"
+    },
+    "CONGRESSISTA_DASHBOARD": {
+        "WELCOME": "Bem-vindo, {{name}}!",
+        "EVENT_SUBTITLE": "Você está participando do <strong>{{eventName}}</strong>",
+        "AREA_TITLE": "Área do Congressista",
+        "AREA_DESCRIPTION": "Esta é sua área exclusiva como participante do evento. Aqui você poderá gerenciar sua inscrição, acessar a programação, enviar trabalhos e muito mais.",
+        "MY_REGISTRATION": "Minha Inscrição",
+        "MY_REGISTRATION_DESC": "Visualize e gerencie os dados da sua inscrição no evento.",
+        "SCHEDULE": "Programação",
+        "SCHEDULE_DESC": "Confira a programação completa do evento e organize sua agenda.",
+        "MY_WORKS": "Meus Trabalhos",
+        "MY_WORKS_DESC": "Envie e acompanhe a avaliação dos seus trabalhos científicos.",
+        "CERTIFICATES": "Certificados",
+        "CERTIFICATES_DESC": "Acesse seus certificados de participação e apresentação.",
+        "QUICK_ACTIONS": "Ações Rápidas",
+        "MESSAGES": "Mensagens",
+        "FORUM": "Fórum",
+        "SUPPORT": "Suporte",
+        "IMPORTANT_INFO": "Informações Importantes",
+        "INFO_1": "As funcionalidades completas serão implementadas em breve",
+        "INFO_2": "Esta é a área exclusiva para participantes do evento",
+        "INFO_3": "Use o menu lateral para navegar entre as seções",
+        "COMING_SOON": "Em Breve"
+    },
+    "ATIVIDADES": {
+        "TITULO": "Lista de Atividades",
+        "ADICIONAR_ATIVIDADE": "Adicionar atividade",
+        "AJUDA": "Ajuda"
+    },
+    "FOOTER": {
+        "RIGHTS": "© 2026 Lumio Eventos. Todos os direitos reservados."
+    }
+}

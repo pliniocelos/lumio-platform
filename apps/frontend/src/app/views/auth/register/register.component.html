@@ -1,0 +1,51 @@
+<div class="auth-card">
+    <h2>{{ 'AUTH.REGISTER.TITLE' | translate }}</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">{{ 'AUTH.LABEL.NAME' | translate }}</label>
+            <input id="name" type="text" formControlName="name" placeholder="Seu nome">
+            @if (registerForm.get('name')?.touched && registerForm.get('name')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.NAME_REQUIRED' | translate }}</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="email">{{ 'AUTH.LABEL.EMAIL' | translate }}</label>
+            <input id="email" type="email" formControlName="email" placeholder="seu@email.com">
+            @if (registerForm.get('email')?.touched && registerForm.get('email')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.EMAIL_INVALID' | translate }}</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">{{ 'AUTH.LABEL.PASSWORD' | translate }}</label>
+            <input id="password" type="password" formControlName="password" placeholder="Mínimo 6 caracteres">
+            @if (registerForm.get('password')?.touched && registerForm.get('password')?.invalid) {
+            <span class="error">{{ 'AUTH.ERROR.PASSWORD_MIN_LENGTH' | translate }}</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">{{ 'AUTH.LABEL.CONFIRM_PASSWORD' | translate }}</label>
+            <input id="confirmPassword" type="password" formControlName="confirmPassword"
+                placeholder="Confirme sua senha">
+            @if (registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched) {
+            <span class="error">{{ 'AUTH.ERROR.PASSWORD_MISMATCH' | translate }}</span>
+            }
+        </div>
+
+        <div class="actions">
+            <button type="submit" [disabled]="registerForm.invalid || isLoading">
+                {{ isLoading ? ('AUTH.REGISTER.BUTTON_LOADING' | translate) : ('AUTH.REGISTER.BUTTON' | translate) }}
+            </button>
+        </div>
+
+        <div class="links">
+            <a routerLink="/login">{{ 'AUTH.REGISTER.HAVE_ACCOUNT' | translate }}</a>
+        </div>
+
+        @if (errorMessage) {
+        <div class="alert error">{{ errorMessage | translate }}</div>
+        }
+    </form>
+</div>

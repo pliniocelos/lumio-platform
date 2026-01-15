@@ -1,0 +1,99 @@
+<div class="congressista-dashboard">
+    <header class="dashboard-header">
+        @if (contextService.usuario(); as usuario) {
+        <h1 [innerHTML]="'CONGRESSISTA_DASHBOARD.WELCOME' | translate:{ name: usuario.nome }"></h1>
+        }
+        @if (contextService.evento(); as evento) {
+        <p class="event-subtitle"
+            [innerHTML]="'CONGRESSISTA_DASHBOARD.EVENT_SUBTITLE' | translate:{ eventName: evento.nome }"></p>
+        }
+    </header>
+
+    <div class="dashboard-grid">
+        <!-- Welcome Card -->
+        <div class="dashboard-card welcome-card">
+            <div class="card-icon">
+                <i class="icon">celebration</i>
+            </div>
+            <div class="card-content">
+                <h2>{{ 'CONGRESSISTA_DASHBOARD.AREA_TITLE' | translate }}</h2>
+                <p>{{ 'CONGRESSISTA_DASHBOARD.AREA_DESCRIPTION' | translate }}</p>
+            </div>
+        </div>
+
+        <!-- My Registration Card -->
+        <div class="dashboard-card feature-card">
+            <div class="card-header">
+                <i class="icon">badge</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.MY_REGISTRATION' | translate }}</h3>
+            </div>
+            <p>{{ 'CONGRESSISTA_DASHBOARD.MY_REGISTRATION_DESC' | translate }}</p>
+            <button class="card-btn" disabled>{{ 'CONGRESSISTA_DASHBOARD.COMING_SOON' | translate }}</button>
+        </div>
+
+        <!-- Schedule Card -->
+        <div class="dashboard-card feature-card">
+            <div class="card-header">
+                <i class="icon">event</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.SCHEDULE' | translate }}</h3>
+            </div>
+            <p>{{ 'CONGRESSISTA_DASHBOARD.SCHEDULE_DESC' | translate }}</p>
+            <button class="card-btn" disabled>{{ 'CONGRESSISTA_DASHBOARD.COMING_SOON' | translate }}</button>
+        </div>
+
+        <!-- My Works Card -->
+        <div class="dashboard-card feature-card">
+            <div class="card-header">
+                <i class="icon">description</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.MY_WORKS' | translate }}</h3>
+            </div>
+            <p>{{ 'CONGRESSISTA_DASHBOARD.MY_WORKS_DESC' | translate }}</p>
+            <button class="card-btn" disabled>{{ 'CONGRESSISTA_DASHBOARD.COMING_SOON' | translate }}</button>
+        </div>
+
+        <!-- Certificates Card -->
+        <div class="dashboard-card feature-card">
+            <div class="card-header">
+                <i class="icon">workspace_premium</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.CERTIFICATES' | translate }}</h3>
+            </div>
+            <p>{{ 'CONGRESSISTA_DASHBOARD.CERTIFICATES_DESC' | translate }}</p>
+            <button class="card-btn" disabled>{{ 'CONGRESSISTA_DASHBOARD.COMING_SOON' | translate }}</button>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="dashboard-card actions-card">
+            <div class="card-header">
+                <i class="icon">bolt</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.QUICK_ACTIONS' | translate }}</h3>
+            </div>
+            <div class="quick-actions">
+                <button class="action-btn" disabled>
+                    <i class="icon">mail</i>
+                    <span>{{ 'CONGRESSISTA_DASHBOARD.MESSAGES' | translate }}</span>
+                </button>
+                <button class="action-btn" disabled>
+                    <i class="icon">forum</i>
+                    <span>{{ 'CONGRESSISTA_DASHBOARD.FORUM' | translate }}</span>
+                </button>
+                <button class="action-btn" disabled>
+                    <i class="icon">help</i>
+                    <span>{{ 'CONGRESSISTA_DASHBOARD.SUPPORT' | translate }}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="dashboard-card info-card">
+            <div class="card-header">
+                <i class="icon">info</i>
+                <h3>{{ 'CONGRESSISTA_DASHBOARD.IMPORTANT_INFO' | translate }}</h3>
+            </div>
+            <ul class="info-list">
+                <li><i class="icon">check_circle</i> {{ 'CONGRESSISTA_DASHBOARD.INFO_1' | translate }}</li>
+                <li><i class="icon">check_circle</i> {{ 'CONGRESSISTA_DASHBOARD.INFO_2' | translate }}</li>
+                <li><i class="icon">check_circle</i> {{ 'CONGRESSISTA_DASHBOARD.INFO_3' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="admin-layout">
+    @if (isMobileSidebarOpen) {
+    <div class="sidebar-overlay" (click)="closeMobileSidebar()"></div>
+    }
+
+    <aside class="sidebar" [class.open]="isMobileSidebarOpen">
+        <div class="sidebar-header">
+            <img src="assets/images/logo/logo-lumio-congressos-white.png" alt="Lumio" class="logo">
+        </div>
+        <nav class="sidebar-nav">
+            <a routerLink="/sistema/dashboard" routerLinkActive="active">
+                <i class="icon">dashboard</i> {{ 'MENU.DASHBOARD' | translate }}
+            </a>
+            <!-- Moved Inscrições here (Pos 2) -->
+            <div class="nav-group">
+                <a class="nav-link" (click)="toggleInscricoes()" [class.active]="isInscricoesActive()">
+                    <i class="icon">group</i> {{ 'MENU.INSCRICOES' | translate }}
+                    <i class="icon expand-icon">{{ isInscricoesOpen ? 'expand_less' : 'expand_more' }}</i>
+                </a>
+                @if (isInscricoesOpen) {
+                <div class="submenu">
+                    <a routerLink="/sistema/inscricoes/resumo" routerLinkActive="active">
+                        <i class="icon">summarize</i> {{ 'MENU.RESUMO' | translate }}
+                    </a>
+                    <a routerLink="/sistema/inscricoes/congressistas" routerLinkActive="active">
+                        <i class="icon">people</i> {{ 'MENU.CONGRESSISTAS' | translate }}
+                    </a>
+                </div>
+                }
+            </div>
+            <div class="nav-group">
+                <a class="nav-link" (click)="toggleSecretaria()" [class.active]="isSecretariaActive()">
+                    <i class="icon">business_center</i> {{ 'MENU.SECRETARIA' | translate }}
+                    <i class="icon expand-icon">{{ isSecretariaOpen ? 'expand_less' : 'expand_more' }}</i>
+                </a>
+                @if (isSecretariaOpen) {
+                <div class="submenu">
+                    <a routerLink="/sistema/secretaria/resumo" routerLinkActive="active">
+                        <i class="icon">summarize</i> {{ 'MENU.RESUMO' | translate }}
+                    </a>
+                    <a routerLink="/sistema/secretaria/realizacao" routerLinkActive="active">
+                        <i class="icon">check_circle</i> {{ 'MENU.REALIZACAO' | translate }}
+                    </a>
+                </div>
+                }
+            </div>
+            <div class="nav-group">
+                <a class="nav-link" (click)="toggleTrabalhos()" [class.active]="isTrabalhosActive()">
+                    <i class="icon">description</i> {{ 'MENU.TRABALHOS' | translate }}
+                    <i class="icon expand-icon">{{ isTrabalhosOpen ? 'expand_less' : 'expand_more' }}</i>
+                </a>
+                @if (isTrabalhosOpen) {
+                <div class="submenu">
+                    <a routerLink="/sistema/trabalhos/submissoes" routerLinkActive="active">
+                        <i class="icon">upload_file</i> {{ 'MENU.SUBMISSOES' | translate }}
+                    </a>
+                    <a routerLink="/sistema/trabalhos/avaliacoes" routerLinkActive="active">
+                        <i class="icon">rate_review</i> {{ 'MENU.AVALIACOES' | translate }}
+                    </a>
+                </div>
+                }
+            </div>
+
+            <div class="nav-group">
+                <a class="nav-link" (click)="toggleProgramacao()" [class.active]="isProgramacaoActive()">
+                    <i class="icon">event</i> {{ 'MENU.PROGRAMACAO' | translate }}
+                    <i class="icon expand-icon">{{ isProgramacaoOpen ? 'expand_less' : 'expand_more' }}</i>
+                </a>
+                @if (isProgramacaoOpen) {
+                <div class="submenu">
+                    <a routerLink="/sistema/programacao/atividades" routerLinkActive="active">
+                        <i class="icon">list</i> {{ 'MENU.LISTA_ATIVIDADES' | translate }}
+                    </a>
+                </div>
+                }
+            </div>
+
+            <a routerLink="/sistema/certificados" routerLinkActive="active">
+                <i class="icon">workspace_premium</i> {{ 'MENU.CERTIFICADOS' | translate }}
+            </a>
+            <a routerLink="/sistema/configuracoes" routerLinkActive="active">
+                <i class="icon">settings</i> {{ 'MENU.CONFIGURACOES' | translate }}
+            </a>
+        </nav>
+    </aside>
+    <div class="main-wrapper">
+        <header class="topbar">
+            <button class="hamburger-btn" (click)="toggleMobileSidebar()">
+                <i class="icon">menu</i>
+            </button>
+
+            <div class="event-info">
+                @if (contextService.evento(); as evento) {
+                <span class="event-name">{{ evento.nome }}</span>
+                }
+            </div>
+            <div class="user-info">
+                @if (contextService.usuario(); as usuario) {
+                <span class="user-name">{{ usuario.nome }}</span>
+                }
+                <app-language-switcher></app-language-switcher>
+                <button (click)="switchEvent()" class="switch-event-btn" title="Trocar de Evento">
+                    <i class="icon">swap_horiz</i>
+                </button>
+                <button (click)="logout()" class="logout-btn">{{ 'COMMON.LOGOUT' | translate }}</button>
+            </div>
+        </header>
+        <main class="admin-content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
