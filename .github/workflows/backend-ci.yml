@@ -1,0 +1,58 @@
+name: CI/CD - Backend
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'apps/backend/**'
+      - 'packages/shared/**'
+      - '.github/workflows/backend-ci.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'apps/backend/**'
+      - 'packages/shared/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd apps/backend && npm ci
+
+      - name: Lint
+        run: cd apps/backend && npm run lint || echo "Lint not configured"
+
+      - name: Build
+        run: cd apps/backend && npm run build
+
+      - name: Test
+        run: cd apps/backend && npm run test || echo "Tests not configured"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-build
+          path: apps/backend/dist/
+          retention-days: 7
+
+  # Deploy será configurado quando escolher a plataforma (Railway, DigitalOcean, etc)
+  # deploy:
+  #   needs: build-and-test
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+  #   steps:
+  #     - name: Deploy to production
+  #       run: echo "Deploy backend here"

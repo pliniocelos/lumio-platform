@@ -1,0 +1,48 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Check for package-lock.json changes
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q "package-lock.json"; then
+            echo "✅ package-lock.json updated"
+          fi
+
+      - name: Validate workspace structure
+        run: |
+          if [ ! -d "apps/frontend" ]; then
+            echo "❌ Frontend app not found"
+            exit 1
+          fi
+          if [ ! -d "packages/shared" ]; then
+            echo "❌ Shared package not found"
+            exit 1
+          fi
+          echo "✅ Workspace structure valid"
+
+      - name: Check for secrets in code
+        run: |
+          if grep -r "firebase-service-account" --include="*.ts" --include="*.js" apps/ packages/; then
+            echo "❌ Potential secret found in code!"
+            exit 1
+          fi
+          echo "✅ No secrets detected"
