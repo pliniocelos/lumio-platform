@@ -76,3 +76,6 @@ Código compartilhado entre frontend e backend:
 - [Documentação Angular](https://angular.dev)
 - [Documentação NestJS](https://nestjs.com)
 - [Firebase](https://firebase.google.com)
+
+## 📝 Plinio Vasconcelos
+
