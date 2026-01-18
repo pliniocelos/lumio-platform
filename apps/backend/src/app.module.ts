@@ -9,6 +9,8 @@ import { CommonModule } from './common/common.module';
 import { LotesModule } from './lotes/lotes.module';
 import { InscricoesModule } from './inscricoes/inscricoes.module';
 import { VouchersModule } from './vouchers/vouchers.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { PermissoesModule } from './permissoes/permissoes.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { VouchersModule } from './vouchers/vouchers.module';
     LotesModule,
     InscricoesModule,
     VouchersModule,
+    UsuariosModule,
+    PermissoesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
