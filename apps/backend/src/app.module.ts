@@ -15,6 +15,8 @@ import { AuthModule } from './auth/auth.module';
 import { PagamentosModule } from './pagamentos/pagamentos.module';
 import { AtividadesModule } from './atividades/atividades.module';
 import { PalestrantesModule } from './palestrantes/palestrantes.module';
+import { TrabalhosModule } from './trabalhos/trabalhos.module';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -45,6 +47,8 @@ import { PalestrantesModule } from './palestrantes/palestrantes.module';
     PagamentosModule,
     AtividadesModule,
     PalestrantesModule,
+    TrabalhosModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
