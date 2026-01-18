@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, OneToOne,
 import { Event } from '../../events/entities/event.entity';
 import { Category } from '../../categories/entities/category.entity';
 import { Lote } from '../../lotes/entities/lote.entity';
+import { Voucher } from '../../vouchers/entities/voucher.entity';
 
 @Entity('inscricoes')
 export class Inscricao {
@@ -19,6 +20,13 @@ export class Inscricao {
 
     @ManyToOne(() => Lote, { nullable: true })
     lote: Lote;
+
+    // Voucher
+    @ManyToOne(() => Voucher, { nullable: true })
+    voucher: Voucher;
+
+    @Column('decimal', { precision: 10, scale: 2, default: 0 })
+    valorDesconto: number; // Valor do desconto aplicado pelo voucher
 
     // Status
     @Column({
@@ -56,3 +64,4 @@ export class Inscricao {
     @UpdateDateColumn()
     updatedAt: Date;
 }
+

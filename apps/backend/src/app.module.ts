@@ -8,6 +8,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { CommonModule } from './common/common.module';
 import { LotesModule } from './lotes/lotes.module';
 import { InscricoesModule } from './inscricoes/inscricoes.module';
+import { VouchersModule } from './vouchers/vouchers.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { InscricoesModule } from './inscricoes/inscricoes.module';
     CategoriesModule,
     LotesModule,
     InscricoesModule,
+    VouchersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
