@@ -12,6 +12,7 @@ import { VouchersModule } from './vouchers/vouchers.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { PermissoesModule } from './permissoes/permissoes.module';
 import { AuthModule } from './auth/auth.module';
+import { PagamentosModule } from './pagamentos/pagamentos.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { AuthModule } from './auth/auth.module';
     UsuariosModule,
     PermissoesModule,
     AuthModule,
+    PagamentosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

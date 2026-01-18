@@ -3,6 +3,7 @@ import { Event } from '../../events/entities/event.entity';
 import { Category } from '../../categories/entities/category.entity';
 import { Lote } from '../../lotes/entities/lote.entity';
 import { Voucher } from '../../vouchers/entities/voucher.entity';
+import { Pagamento } from '../../pagamentos/entities/pagamento.entity';
 
 @Entity('inscricoes')
 export class Inscricao {
@@ -27,6 +28,10 @@ export class Inscricao {
 
     @Column('decimal', { precision: 10, scale: 2, default: 0 })
     valorDesconto: number; // Valor do desconto aplicado pelo voucher
+
+    // Pagamentos
+    @OneToMany(() => Pagamento, pagamento => pagamento.inscricao)
+    pagamentos: Pagamento[];
 
     // Status
     @Column({
