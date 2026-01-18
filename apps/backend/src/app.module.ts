@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { EventsModule } from './events/events.module';
 import { CategoriesModule } from './categories/categories.module';
 import { CommonModule } from './common/common.module';
+import { LotesModule } from './lotes/lotes.module';
+import { InscricoesModule } from './inscricoes/inscricoes.module';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { CommonModule } from './common/common.module';
     EventsModule,
 
     CategoriesModule,
+    LotesModule,
+    InscricoesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
