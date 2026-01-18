@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventsModule } from './events/events.module';
 import { CategoriesModule } from './categories/categories.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CategoriesModule } from './categories/categories.module';
       logging: process.env.NODE_ENV === 'development', // Logs SQL em dev
     }),
 
+    CommonModule,
     EventsModule,
 
     CategoriesModule,
