@@ -11,6 +11,7 @@ import { InscricoesModule } from './inscricoes/inscricoes.module';
 import { VouchersModule } from './vouchers/vouchers.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { PermissoesModule } from './permissoes/permissoes.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { PermissoesModule } from './permissoes/permissoes.module';
     VouchersModule,
     UsuariosModule,
     PermissoesModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
