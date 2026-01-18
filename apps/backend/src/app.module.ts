@@ -13,6 +13,8 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { PermissoesModule } from './permissoes/permissoes.module';
 import { AuthModule } from './auth/auth.module';
 import { PagamentosModule } from './pagamentos/pagamentos.module';
+import { AtividadesModule } from './atividades/atividades.module';
+import { PalestrantesModule } from './palestrantes/palestrantes.module';
 
 @Module({
   imports: [
@@ -41,6 +43,8 @@ import { PagamentosModule } from './pagamentos/pagamentos.module';
     PermissoesModule,
     AuthModule,
     PagamentosModule,
+    AtividadesModule,
+    PalestrantesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

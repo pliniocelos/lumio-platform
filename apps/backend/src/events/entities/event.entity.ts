@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Atividade } from '../../atividades/entities/atividade.entity';
 
 @Entity('eventos')
 export class Event {
@@ -69,6 +70,10 @@ export class Event {
 
     @OneToMany(() => Event, evento => evento.eventoPai)
     subeventos: Event[];
+
+    // Grade Científica
+    @OneToMany(() => Atividade, atividade => atividade.evento)
+    atividades: Atividade[];
 
     // Idiomas (mantido do modelo original)
     @Column('simple-array')
