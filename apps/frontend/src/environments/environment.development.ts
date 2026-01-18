@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
+    apiUrl: 'http://localhost:3001',
     firebase: {
         apiKey: "AIzaSyB8XwPiPyNqTux-w9Xe5Bi4L63vDEfJBf0",
         authDomain: "lumio-congressos.firebaseapp.com",

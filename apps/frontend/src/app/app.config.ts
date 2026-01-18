@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors, HttpClient } from '@angular/common/http';
-import { mockInterceptor } from './core/interceptors/mock.interceptor';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 // import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { importProvidersFrom } from '@angular/core';
@@ -31,7 +31,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([mockInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor])),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {
